@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gyan Carlos | Personal Trainer — Curitiba</title>
+  <meta name="description" content="Personal Trainer em Curitiba. Treino presencial e consultoria online. Ganho de massa, perda de gordura, reabilitação e muito mais. Transformo seu físico com método.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── RESET & BASE ─────────────────────────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black:        #080808;
+      --dark:         #0E0E0E;
+      --card:         #141414;
+      --border:       rgba(255,255,255,0.07);
+      --accent:       #F59E0B;
+      --accent-dark:  #D97706;
+      --accent-pale:  rgba(245,158,11,0.10);
+      --white:        #FFFFFF;
+      --gray:         #888888;
+      --gray-light:   #C4C4C8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── TYPOGRAPHY ───────────────────────────────────────────────────────────── */
+    h1, h2, h3, h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── UTILITIES ────────────────────────────────────────────────────────────── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .accent { color: var(--accent); }
+
+    .tag {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-weight: 800;
+    }
+
+    /* ─── BUTTONS ──────────────────────────────────────────────────────────────── */
+    .btn-primary {
+      display: block;
+      width: 100%;
+      background: var(--accent);
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 19px 36px;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: block;
+      width: 100%;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      text-decoration: none;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.28);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); }
+
+    .btn-inline-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 18px 42px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-inline-primary:hover { background: var(--accent-dark); transform: translateY(-2px); }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       NAV
+    ════════════════════════════════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 22px 0;
+      transition: background 0.35s, padding 0.35s, box-shadow 0.35s;
+    }
+    #navbar.scrolled {
+      background: rgba(8,8,8,0.96);
+      backdrop-filter: blur(14px);
+      padding: 14px 0;
+      box-shadow: 0 1px 0 var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .nav-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 34px;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta-btn {
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #000;
+      background: var(--accent);
+      padding: 11px 22px;
+      text-decoration: none;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .nav-cta-btn:hover { background: var(--accent-dark); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 199;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+    .mobile-menu .mobile-wa {
+      color: var(--accent);
+      font-size: 22px;
+      border: 1px solid var(--accent);
+      padding: 14px 40px;
+      margin-top: 8px;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('Imagens Gyan/Imagem Hero.jpg') 32% top / cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to left,
+        rgba(8,8,8,0.97) 0%,
+        rgba(8,8,8,0.82) 48%,
+        rgba(8,8,8,0.22) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+      margin-left: auto;
+      padding-top: 110px;
+      padding-bottom: 60px;
+      text-align: right;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      font-weight: 800;
+      line-height: 1.0;
+      margin-bottom: 28px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--gray-light);
+      max-width: 480px;
+      margin-left: auto;
+      margin-bottom: 44px;
+      line-height: 1.75;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 310px;
+      margin-left: auto;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 38px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-scroll-hint span {
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .scroll-bar {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, var(--accent) 0%, transparent 100%);
+      animation: scrollAnim 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollAnim {
+      0%   { opacity: 1; transform: scaleY(1);   }
+      100% { opacity: 0; transform: scaleY(0.4) translateY(12px); }
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       SOBRE
+    ════════════════════════════════════════════════════════════════════════════ */
+    #sobre {
+      padding: 110px 0;
+      background: var(--dark);
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .sobre-img-wrap {
+      position: relative;
+    }
+    .sobre-img-wrap img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .sobre-corner {
+      position: absolute;
+      bottom: -16px;
+      left: -16px;
+      width: 72px;
+      height: 72px;
+      background: var(--accent);
+      z-index: 0;
+    }
+    .sobre-img-wrap img { position: relative; z-index: 1; }
+
+    .sobre-badge {
+      position: absolute;
+      bottom: 28px;
+      right: -18px;
+      background: var(--accent);
+      color: #000;
+      padding: 18px 20px;
+      text-align: center;
+      z-index: 2;
+    }
+    .badge-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1;
+      display: block;
+    }
+    .badge-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .sobre-text-block { }
+    .sobre-text-block .section-title { margin-bottom: 28px; }
+    .sobre-p {
+      font-size: 14.5px;
+      color: var(--gray-light);
+      line-height: 1.82;
+      margin-bottom: 14px;
+    }
+
+    .sobre-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 44px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-n {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 46px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+    }
+    .stat-l {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       METODOLOGIA
+    ════════════════════════════════════════════════════════════════════════════ */
+    #metodologia {
+      padding: 110px 0;
+      background: var(--black);
+    }
+
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 68px;
+    }
+    .section-header-center .section-title { margin-top: 10px; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+    }
+
+    .step-card {
+      background: var(--dark);
+      padding: 52px 44px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .step-card:hover { background: var(--card); }
+    .step-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--accent);
+      transition: height 0.4s ease;
+    }
+    .step-card:hover::after { height: 100%; }
+
+    .step-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 80px;
+      font-weight: 800;
+      color: var(--accent-pale);
+      line-height: 1;
+      margin-bottom: 14px;
+      display: block;
+      transition: color 0.3s;
+    }
+    .step-card:hover .step-num { color: rgba(245,158,11,0.2); }
+
+    .step-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .step-text {
+      font-size: 13.5px;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       SERVIÇOS
+    ════════════════════════════════════════════════════════════════════════════ */
+    #servicos {
+      padding: 110px 0;
+      background: var(--dark);
+    }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+
+    .servico-card {
+      background: var(--dark);
+      padding: 42px 32px;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .servico-card:hover { background: var(--black); }
+    .servico-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .servico-card:hover::before { transform: scaleX(1); }
+
+    .s-icon {
+      width: 40px;
+      height: 40px;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+    .s-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .s-text {
+      font-size: 13.5px;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       TRANSFORMAÇÕES
+    ════════════════════════════════════════════════════════════════════════════ */
+    #transformacoes {
+      padding: 110px 0;
+      background: var(--black);
+    }
+
+    .transf-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .transf-card {
+      position: relative;
+      overflow: hidden;
+      height: 480px;
+    }
+    .transf-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    .transf-card:hover img { transform: scale(1.05); }
+
+    .transf-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px 24px;
+      background: linear-gradient(to top, rgba(8,8,8,0.93) 0%, transparent 100%);
+    }
+    .transf-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      display: block;
+    }
+    .transf-sub {
+      font-size: 11px;
+      color: var(--gray-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 2px;
+      display: block;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       DIFERENCIAL
+    ════════════════════════════════════════════════════════════════════════════ */
+    #diferencial {
+      padding: 110px 0;
+      background: var(--dark);
+    }
+
+    .diferencial-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 88px;
+      align-items: center;
+    }
+
+    .dif-content .section-title { margin-bottom: 36px; }
+
+    .dif-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .dif-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14.5px;
+      color: var(--gray-light);
+      line-height: 1.55;
+    }
+    .check-ico {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      color: var(--accent);
+      margin-top: 3px;
+    }
+
+    .dif-cta {
+      margin-top: 48px;
+    }
+
+    .dif-img-wrap {
+      position: relative;
+    }
+    .dif-img-wrap img {
+      width: 100%;
+      height: 590px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .dif-corner {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 72px;
+      height: 72px;
+      background: var(--accent);
+      z-index: 0;
+    }
+    .dif-img-wrap img { position: relative; z-index: 1; }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       CTA FINAL
+    ════════════════════════════════════════════════════════════════════════════ */
+    #cta-final {
+      padding: 128px 0;
+      background: var(--black);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-final::before {
+      content: 'GYAN';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(160px, 28vw, 360px);
+      font-weight: 800;
+      color: rgba(255,255,255,0.022);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: -0.01em;
+      user-select: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .cta-title {
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      font-weight: 800;
+      line-height: 1.02;
+      margin-bottom: 24px;
+    }
+    .cta-sub {
+      font-size: 15px;
+      color: var(--gray-light);
+      line-height: 1.78;
+      margin-bottom: 52px;
+    }
+    .cta-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 330px;
+      margin: 0 auto;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════════════════════════════ */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 64px 0 36px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+      text-align: center;
+    }
+
+    .footer-logo-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 28px;
+    }
+    .footer-social-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-social-link:hover { color: var(--accent); }
+    .footer-social-link svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: var(--gray);
+      letter-spacing: 0.06em;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .nav-links, .nav-cta-btn { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-content { text-align: left; margin-left: 0; }
+      .hero-eyebrow { justify-content: flex-start; }
+      .hero-eyebrow::after { display: none; }
+      .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+      .hero-sub { margin-left: 0; }
+      .hero-btns { margin-left: 0; }
+
+      .sobre-grid    { grid-template-columns: 1fr; gap: 52px; }
+      .sobre-img-wrap img { height: 440px; }
+      .sobre-badge   { right: 0; }
+
+      .steps-grid    { grid-template-columns: 1fr; }
+      .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+      .transf-grid   { grid-template-columns: 1fr; }
+      .transf-card   { height: 360px; }
+
+      .diferencial-grid { grid-template-columns: 1fr; gap: 52px; }
+      .dif-img-wrap     { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .servicos-grid { grid-template-columns: 1fr; }
+      .sobre-stats   { grid-template-columns: 1fr 1fr; }
+      .hero-btns     { max-width: 100%; }
+      .footer-socials{ flex-direction: column; gap: 18px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══════════════════════════════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">GYAN <span>CARLOS</span></a>
+        <ul class="nav-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#transformacoes">Resultados</a></li>
+          <li><a href="#diferencial">Diferencial</a></li>
+        </ul>
+        <a href="https://api.whatsapp.com/message/IO2IUDS5GIMSO1?autoload=1&app_absent=0"
+           target="_blank" rel="noopener" class="nav-cta-btn">Falar Agora</a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ MOBILE MENU ════════════════════════════════════════════════════════════ -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+    <a href="#sobre"          onclick="closeMenu()">Sobre</a>
+    <a href="#servicos"       onclick="closeMenu()">Serviços</a>
+    <a href="#transformacoes" onclick="closeMenu()">Resultados</a>
+    <a href="#diferencial"    onclick="closeMenu()">Diferencial</a>
+    <a href="https://api.whatsapp.com/message/IO2IUDS5GIMSO1?autoload=1&app_absent=0"
+       target="_blank" rel="noopener" class="mobile-wa" onclick="closeMenu()">Falar no WhatsApp</a>
+  </div>
+
+  <!-- ═══ HERO ═══════════════════════════════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Gyan Carlos &mdash; Personal Trainer &bull; Curitiba</div>
+        <h1 class="hero-title">
+          EU VOU TRANSFORMAR<br>
+          SEU FÍSICO<br>
+          <span class="accent">COM MÉTODO.</span>
+        </h1>
+        <p class="hero-sub">
+          Treino presencial em Curitiba e consultoria online para todo o Brasil.
+          Seja qual for o seu objetivo, eu crio o protocolo certo para você chegar lá de verdade.
+        </p>
+        <div class="hero-btns">
+          <a href="https://api.whatsapp.com/message/IO2IUDS5GIMSO1?autoload=1&app_absent=0"
+             target="_blank" rel="noopener" class="btn-primary">Quero Começar Agora</a>
+          <a href="https://api.whatsapp.com/message/IO2IUDS5GIMSO1?autoload=1&app_absent=0"
+             target="_blank" rel="noopener" class="btn-outline">Falar no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Rolar</span>
+      <div class="scroll-bar"></div>
+    </div>
+  </section>
+
+  <!-- ═══ SOBRE ══════════════════════════════════════════════════════════════════ -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+
+        <div class="sobre-img-wrap">
+          <div class="sobre-corner" aria-hidden="true"></div>
+          <img src="Imagens Gyan/IMAGEM SOBRE.jpg" alt="Gyan Carlos — Personal Trainer em academia">
+          <div class="sobre-badge">
+            <span class="badge-num">+3K</span>
+            <span class="badge-lbl">Seguidores</span>
+          </div>
+        </div>
+
+        <div class="sobre-text-block">
+          <span class="tag">Sobre</span>
+          <h2 class="section-title">QUEM SOU EU?</h2>
+          <p class="sobre-p">
+            Sou Gyan Carlos, Personal Trainer em Curitiba com foco total em transformação física real.
+            Atendo presencialmente e ofereço consultoria online para alunos de todo o Brasil.
+          </p>
+          <p class="sobre-p">
+            Minha filosofia é direta: resultado não vem de achismo. Cada protocolo que monto é baseado
+            em ciência, individualização e acompanhamento próximo. Garanto que cada etapa do processo
+            faça sentido para o seu corpo e para a sua rotina.
+          </p>
+          <p class="sobre-p">
+            Seja seu objetivo ganhar massa muscular, perder gordura, reabilitar uma lesão ou melhorar
+            sua qualidade de vida, estou aqui para te guiar com método e comprometimento do início ao fim.
+          </p>
+          <div class="sobre-stats">
+            <div>
+              <span class="stat-n">100%</span>
+              <span class="stat-l">Personalizado</span>
+            </div>
+            <div>
+              <span class="stat-n">Online</span>
+              <span class="stat-l">e Presencial</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ METODOLOGIA ════════════════════════════════════════════════════════════ -->
+  <section id="metodologia">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="tag">Metodologia</span>
+        <h2 class="section-title">COMO EU TRABALHO</h2>
+      </div>
+      <div class="steps-grid">
+
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3 class="step-title">Avaliação Completa</h3>
+          <p class="step-text">Analiso seu histórico, objetivos, rotina e limitações. Com esse diagnóstico, construo a estratégia mais eficiente para o seu perfil específico.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3 class="step-title">Protocolo Personalizado</h3>
+          <p class="step-text">Monto um programa de treino estruturado e exclusivo para você. Nada de receita de bolo — cada detalhe é pensado para maximizar a sua evolução.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3 class="step-title">Acompanhamento Próximo</h3>
+          <p class="step-text">Estou ao seu lado em cada etapa, corrigindo a execução, mantendo a motivação e garantindo que você nunca fique sem direção ao longo do processo.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">04</span>
+          <h3 class="step-title">Ajustes Inteligentes</h3>
+          <p class="step-text">Monitoro sua evolução continuamente e faço os ajustes certos no momento certo. Sua progressão nunca para — eu me certifico disso.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVIÇOS ═══════════════════════════════════════════════════════════════ -->
+  <section id="servicos">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="tag">Serviços</span>
+        <h2 class="section-title">O QUE POSSO FAZER POR VOCÊ</h2>
+      </div>
+      <div class="servicos-grid">
+
+        <div class="servico-card">
+          <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6.5 6.5h11M6.5 17.5h11M3 10.5h18M3 13.5h18"/>
+            <circle cx="5" cy="12" r="2.5"/>
+            <circle cx="19" cy="12" r="2.5"/>
+          </svg>
+          <h3 class="s-title">Ganho de Massa Muscular</h3>
+          <p class="s-text">Desenvolvo programas de hipertrofia com técnicas avançadas e periodização inteligente para você construir o corpo que sempre quis.</p>
+        </div>
+
+        <div class="servico-card">
+          <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C9.5 5.5 7 8.5 7 12a5 5 0 0010 0c0-3.5-2.5-6.5-5-10z"/>
+            <path d="M9.5 14.5c1 1.5 3.5 1.5 4.5 0"/>
+          </svg>
+          <h3 class="s-title">Perda de Gordura</h3>
+          <p class="s-text">Crio estratégias de treino focadas na redução de gordura de forma saudável e sustentável, sem sacrificar a sua massa muscular.</p>
+        </div>
+
+        <div class="servico-card">
+          <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 2l4 4-4 4"/>
+            <path d="M3 11V9a4 4 0 014-4h14"/>
+            <path d="M7 22l-4-4 4-4"/>
+            <path d="M21 13v2a4 4 0 01-4 4H3"/>
+          </svg>
+          <h3 class="s-title">Recomposição Corporal</h3>
+          <p class="s-text">Combino protocolos específicos para você perder gordura e ganhar músculo ao mesmo tempo, transformando completamente sua composição corporal.</p>
+        </div>
+
+        <div class="servico-card">
+          <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 12.5C3 10 3 7 5 5s5-2 7 0"/>
+            <path d="M19.5 11.5C21 14 21 17 19 19s-5 2-7 0"/>
+            <path d="M12 8v8M9 11l3-3 3 3"/>
+          </svg>
+          <h3 class="s-title">Reabilitação de Lesão</h3>
+          <p class="s-text">Estruturo treinos seguros e progressivos para sua recuperação, respeitando os limites do seu corpo e prevenindo o reaparecimento de lesões.</p>
+        </div>
+
+        <div class="servico-card">
+          <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          <h3 class="s-title">Ganho de Resistência</h3>
+          <p class="s-text">Desenvolvo sua capacidade física com treinos que elevam seu condicionamento, energia e disposição tanto dentro quanto fora da academia.</p>
+        </div>
+
+        <div class="servico-card">
+          <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+          <h3 class="s-title">Consultoria Online</h3>
+          <p class="s-text">Acompanho você 100% à distância com suporte contínuo e personalizado, independente de onde você esteja no Brasil.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TRANSFORMAÇÕES ═════════════════════════════════════════════════════════ -->
+  <section id="transformacoes">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="tag">Transformações</span>
+        <h2 class="section-title">RESULTADOS DOS MEUS ALUNOS</h2>
+      </div>
+      <div class="transf-grid">
+
+        <div class="transf-card">
+          <img src="Imagens Gyan/DEPOIMENTO 1.png" alt="Resultado real de aluno — Gyan Carlos Personal Trainer">
+          <div class="transf-overlay">
+            <span class="transf-label">Resultado Real</span>
+            <span class="transf-sub">Ganho de Massa Muscular</span>
+          </div>
+        </div>
+
+        <div class="transf-card">
+          <img src="Imagens Gyan/DEPOIMENTO 2.jpg" alt="Antes e depois — Recomposição Corporal">
+          <div class="transf-overlay">
+            <span class="transf-label">Antes / Depois</span>
+            <span class="transf-sub">Recomposição Corporal</span>
+          </div>
+        </div>
+
+        <div class="transf-card">
+          <img src="Imagens Gyan/DEPOIMENTO 3.png" alt="Antes e depois — Perda de Gordura">
+          <div class="transf-overlay">
+            <span class="transf-label">Antes / Depois</span>
+            <span class="transf-sub">Perda de Gordura</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DIFERENCIAL ════════════════════════════════════════════════════════════ -->
+  <section id="diferencial">
+    <div class="container">
+      <div class="diferencial-grid">
+
+        <div class="dif-content">
+          <span class="tag">Diferencial</span>
+          <h2 class="section-title">POR QUE TREINAR COMIGO?</h2>
+          <ul class="dif-list">
+            <li>
+              <svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Ofereço atendimento 100% personalizado, sem protocolos genéricos ou treinos copiados
+            </li>
+            <li>
+              <svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Meu foco é no resultado real, não apenas em parecer que o treino está funcionando
+            </li>
+            <li>
+              <svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Atendo presencialmente em Curitiba e online para qualquer lugar do Brasil
+            </li>
+            <li>
+              <svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Estou próximo e disponível em cada etapa, acompanhando de verdade a sua evolução
+            </li>
+            <li>
+              <svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Trabalho com método, ciência e dedicação — sem achismo e sem atalhos
+            </li>
+            <li>
+              <svg class="check-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Adapto o treino à sua rotina, ao seu corpo e ao seu objetivo específico
+            </li>
+          </ul>
+          <div class="dif-cta">
+            <a href="https://api.whatsapp.com/message/IO2IUDS5GIMSO1?autoload=1&app_absent=0"
+               target="_blank" rel="noopener" class="btn-inline-primary">Quero Começar</a>
+          </div>
+        </div>
+
+        <div class="dif-img-wrap">
+          <div class="dif-corner" aria-hidden="true"></div>
+          <img src="Imagens Gyan/Imagem Complementar.jpg" alt="Gyan Carlos — Personal Trainer em treino">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA FINAL ══════════════════════════════════════════════════════════════ -->
+  <section id="cta-final">
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="cta-title">COMECE A SUA<br>TRANSFORMAÇÃO <span class="accent">HOJE.</span></h2>
+        <p class="cta-sub">
+          Não espere o momento perfeito — ele não chega sozinho.
+          Entre em contato comigo agora e vamos montar juntos o protocolo ideal para o seu objetivo.
+        </p>
+        <div class="cta-btns">
+          <a href="https://api.whatsapp.com/message/IO2IUDS5GIMSO1?autoload=1&app_absent=0"
+             target="_blank" rel="noopener" class="btn-primary">Começar Agora</a>
+          <a href="https://api.whatsapp.com/message/IO2IUDS5GIMSO1?autoload=1&app_absent=0"
+             target="_blank" rel="noopener" class="btn-outline">Falar Comigo no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═════════════════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+
+        <div>
+          <span class="footer-logo-text">Gyan Carlos Personal Trainer</span>
+          <span class="footer-tagline">Transformo seu físico sem achismo e sim com método.</span>
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://instagram.com/gyan.personal" target="_blank" rel="noopener"
+             class="footer-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            @gyan.personal
+          </a>
+          <a href="https://api.whatsapp.com/message/IO2IUDS5GIMSO1?autoload=1&app_absent=0"
+             target="_blank" rel="noopener" class="footer-social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
+
+        <div class="footer-divider"></div>
+        <p class="footer-copy">&copy; 2026 Gyan Carlos Personal Trainer. Todos os direitos reservados.</p>
+
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══ SCRIPTS ════════════════════════════════════════════════════════════════ -->
+  <script>
+    // Nav scroll behavior
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 56);
+    }, { passive: true });
+
+    // Mobile menu
+    const hamburger  = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('active', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close mobile menu on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    // Fade-in on scroll
+    const observerOpts = { threshold: 0.12 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOpts);
+
+    document.querySelectorAll(
+      '.step-card, .servico-card, .transf-card, .sobre-img-wrap, .sobre-text-block, .dif-content, .dif-img-wrap'
+    ).forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
